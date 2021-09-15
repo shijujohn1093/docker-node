@@ -1,0 +1,37 @@
+version: '3'
+
+services: 
+  redis-server:
+    image: 'redis'
+  node-app:
+    restart: on-failure
+    build: .
+    ports: 
+      - "4001:8081"
+
+
+
+#---------------------------------
+# Reseter Polciy 
+# "no" do not attemt to restrt
+# "always" if this container stops fo any reason the always atemp to restart
+# "on-failure" Only restrt if container stops with an erro code
+# "unless-stopped" Always restart unless we forcibaly stop it
+#
+
+#---------------------------------
+# docker run myimage 
+# > docker-compose up
+
+# docker build up .
+# and docker run myimage
+# > docker-compose up --build
+
+# Luanch in background
+# docker-compose up -d
+
+# Stop run below command where docker-compose file 
+# docker-compose down
+#---------------------------------
+  
+# > docker-compose ps
